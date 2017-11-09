@@ -1,6 +1,9 @@
 <?php
-	//Conectar a la BD
-	$con = mysqli_connect("localhost","","");
-	mysqli_select_db('datos', $con);
-
+	//servidor, usuario de base de datos, contraseña del usuario, nombre de base de datos
+	$mysqli = new mysqli("localhost","root","","smartbell"); 
+	
+	if(mysqli_connect_errno()){
+		echo 'Conexion Fallida : ', mysqli_connect_error();
+		exit();
+	}
 ?>
