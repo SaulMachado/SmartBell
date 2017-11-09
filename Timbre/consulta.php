@@ -1,16 +1,16 @@
 <?php
-include("conexion.php");
-$nombre = $_POST["usuario"]; 
-$password = $_POST["clave"]; 
-
-$consulta =("SELECT * FROM datos WHERE usuario = '.$nombre.' AND password = '.$password.'"); 
-
-if(!$consulta){ 
-    echo "usuario no existe"; 
-} 
-else{ 
-    print "Bienvenido"; 
-} 
+include "conexion.php";
+$nombre = $_POST['usuario']; 
+$password = $_POST['clave']; 
 
 
+$consulta= "SELECT * FROM usuarios WHERE usuario='$nombre' AND contrasena='$password' ";
+$resultado= $con->query($consulta);
+
+	if ($resultado->num_rows>0) {
+		echo "Bienvenido";
+		# code...
+	}else{
+		echo "Datos incorrectos";
+	}
 ?>
