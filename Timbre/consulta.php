@@ -4,13 +4,14 @@ $nombre = $_POST['usuario'];
 $password = $_POST['clave']; 
 
 
-$consulta= "SELECT * FROM usuarios WHERE usuario='$nombre' AND contrasena='$password' ";
+$consulta= "SELECT * FROM login WHERE usuario='$nombre' AND pass='$password' ";
 $resultado= $con->query($consulta);
 
 	if ($resultado->num_rows>0) {
-		echo "Bienvenido";
-		# code...
+		
+		header('Location:/Timbre/inicio.html');
 	}else{
-		echo "Datos incorrectos";
+		echo '<script>alert("Datos incorrectos, Intentalo Nuevamente")</script>';
+		include "index.html";
 	}
 ?>

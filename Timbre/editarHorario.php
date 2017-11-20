@@ -1,7 +1,11 @@
+<?php
+  $mysqli = new mysqli('localhost', 'root', '', 'datos');
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>SmartBell::Inicio</title>
+<title>SmartBell:Editar</title>
 <meta charset="utf-8">
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
@@ -41,6 +45,7 @@
 </head>
 <body>
 <div class="header_bg" id="home"><!-- start header -->
+
 <div class="container">
 	<div class="row header text-center specials">
 		<div class="h_logo">
@@ -62,38 +67,49 @@
 	</div>
 </div>
 </div>
-<div class="slider_bg"><!-- start slider -->
+
 <div class="container">
-		<div class="row slider">
-		<div class="wmuSlider example1"><!-- start wmuSlider example1 -->
-			   <div class="wmuSliderWrapper">
-				   <article style="position: absolute; width: 100%; opacity: 0;"> 
-				  	 	<div class="slider_img text-center">
-				   			<ul class="list-unstyled list_imgs">
-				   				<li><img src="images/slider_vm.jpg" alt="" class="responsive"/></li>
-				   			</ul>
-			           	</div>
-				   </article>
-				   <article style="position: relative; width: 100%; opacity: 1;"> 
-				  	 	<div class="slider_img text-center">
-				   			<ul class="list-unstyled list_imgs">
-				   				<li><img src="images/slider_escuela.jpg" alt="" class="responsive"/></li>
-				   			</ul>
-			           	</div>
-				   </article>
-				 </div>
-                <ul class="wmuSliderPagination">
-                	<li><a href="#" class="">0</a></li>
-                	<li><a href="#" class="">1</a></li>
-                </ul>
-			<script src="js/jquery.wmuSlider.js"></script> 
-		     <script>
-				 $('.example1').wmuSlider();         
-			</script>
-        </div><!-- end wmuSlider example1 -->
-        <div class="clearfix"></div>
-      </div>
-</div>
+	<div class="row about">
+		<div class="col-md-3 about_img">
+			<img src="images/user.png" alt="" class="responsive"/>
+		</div>
+		<div class="col-md-8 contact_left">
+			<form  method="POST" action="updateHorario.php">
+				<h1><center>EDITAR HORARIO </center> </h1>
+				<br>
+				<h2>SELECCIONAR HORARIO</h2>
+				<select class="form-control" name="select_id">
+					<option value="0">Seleccione:</option>
+					<?php	
+					$query = $mysqli -> query("SELECT * FROM horarios");
+					while($valores = mysqli_fetch_array($query)){
+						echo '<option value="'.$valores['id_horario'].'">'.$valores['descripcion'].'</option>';
+					}
+					?>
+				</select>
+				<h2> DESCRIPCION </h2>
+				<input type="text" placeholder="&#128272; Ej:Horario Mañana " name="descripcion_nueva">
+				<h3><font color="black"> 1a HORA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 6:00:00 " name = "hora1_nueva" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> 2a HORA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 7:00:00 " name = "hora2_nueva" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> 3a HORA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 8:00:00 " name = "hora3_nueva" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> DESCANSO </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 9:00:00 " name = "descanso_nueva" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> 4a HORA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 9:30:00 " name = "hora4_nueva" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> 5a HORA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 10:30:00 " name = "hora5_nueva" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> 6a HORA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 11:30:00 " name = "hora6_nueva" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> SALIDA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 12:30:00 " name = "salida_nueva" min="5:00:00" max="20:00:00">
+				
+				<input type="submit" value="Actualizar">
+        </form>
+		</div>
+	</div>
 </div>
 
 <div class="footer_bg" id="nosotros"><!-- start footer -->

@@ -62,40 +62,45 @@
 	</div>
 </div>
 </div>
-<div class="slider_bg"><!-- start slider -->
-<div class="container">
-		<div class="row slider">
-		<div class="wmuSlider example1"><!-- start wmuSlider example1 -->
-			   <div class="wmuSliderWrapper">
-				   <article style="position: absolute; width: 100%; opacity: 0;"> 
-				  	 	<div class="slider_img text-center">
-				   			<ul class="list-unstyled list_imgs">
-				   				<li><img src="images/slider_vm.jpg" alt="" class="responsive"/></li>
-				   			</ul>
-			           	</div>
-				   </article>
-				   <article style="position: relative; width: 100%; opacity: 1;"> 
-				  	 	<div class="slider_img text-center">
-				   			<ul class="list-unstyled list_imgs">
-				   				<li><img src="images/slider_escuela.jpg" alt="" class="responsive"/></li>
-				   			</ul>
-			           	</div>
-				   </article>
-				 </div>
-                <ul class="wmuSliderPagination">
-                	<li><a href="#" class="">0</a></li>
-                	<li><a href="#" class="">1</a></li>
-                </ul>
-			<script src="js/jquery.wmuSlider.js"></script> 
-		     <script>
-				 $('.example1').wmuSlider();         
-			</script>
-        </div><!-- end wmuSlider example1 -->
-        <div class="clearfix"></div>
-      </div>
-</div>
-</div>
 
+<div class="main_bg"  id="about"><!-- start about us -->
+<div class="container">
+	<div class="row about">
+		<div class="col-md-3 about_img">
+			<img src="images/user.png" alt="" class="responsive"/>
+		</div>
+		<div class="col-md-9">
+			<?php
+				include_once "conexion.php";
+
+				$des = $_POST['descripcion'];
+				$h1 = $_POST['hora1'];
+				$h2 = $_POST['hora2'];
+				$h3 = $_POST['hora3'];
+				$descanso = $_POST['descanso'];
+				$h4 = $_POST['hora4'];
+				$h5 = $_POST['hora5'];
+				$h6 = $_POST['hora6'];
+				$salir = $_POST['salida'];
+
+				//$insert= "INSERT INTO horario (id, idRegHorario, horaInicio, horaFin) VALUES ('$ideh', '$idereg', '$horain', '$horafi')";
+
+				$sql = "INSERT INTO horarios(id_horario, descripcion, hora1, hora2, hora3, descanso, hora4, hora5, hora6, salida) VALUES ('','$des','$h1','$h2','$h3','$descanso','$h4','$h5','$h6','$salir')";
+
+				$resultado = mysqli_query($con, $sql);
+
+				if(!$resultado){
+
+					echo "error al registrar";
+				}
+				else{
+					echo "Registro exitoso";
+				}
+			?>
+		</div>
+	</div>
+</div>
+</div>
 <div class="footer_bg" id="nosotros"><!-- start footer -->
 <div class="container">
 	<div class="col-md-4  contact_right">

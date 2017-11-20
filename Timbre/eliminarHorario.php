@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>SmartBell::Inicio</title>
+<title>SmartBell::Eliminar</title>
 <meta charset="utf-8">
 <!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!--<link href="css/bootstrap.min.css" rel='stylesheet'/>--> 
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -62,40 +62,59 @@
 	</div>
 </div>
 </div>
-<div class="slider_bg"><!-- start slider -->
-<div class="container">
-		<div class="row slider">
-		<div class="wmuSlider example1"><!-- start wmuSlider example1 -->
-			   <div class="wmuSliderWrapper">
-				   <article style="position: absolute; width: 100%; opacity: 0;"> 
-				  	 	<div class="slider_img text-center">
-				   			<ul class="list-unstyled list_imgs">
-				   				<li><img src="images/slider_vm.jpg" alt="" class="responsive"/></li>
-				   			</ul>
-			           	</div>
-				   </article>
-				   <article style="position: relative; width: 100%; opacity: 1;"> 
-				  	 	<div class="slider_img text-center">
-				   			<ul class="list-unstyled list_imgs">
-				   				<li><img src="images/slider_escuela.jpg" alt="" class="responsive"/></li>
-				   			</ul>
-			           	</div>
-				   </article>
-				 </div>
-                <ul class="wmuSliderPagination">
-                	<li><a href="#" class="">0</a></li>
-                	<li><a href="#" class="">1</a></li>
-                </ul>
-			<script src="js/jquery.wmuSlider.js"></script> 
-		     <script>
-				 $('.example1').wmuSlider();         
-			</script>
-        </div><!-- end wmuSlider example1 -->
-        <div class="clearfix"></div>
-      </div>
-</div>
+<br>
+<br>
+<h2><center>HORARIOS REGISTRADOS</center></h2>
+<h4>Seleccione el horario que desea usar:</h4>
+<br>
+<div class="table-responsive">
+	<form action="deleteHorario.php" method="POST">
+		<table class="table table-striped">
+		<thead>
+			<th>ID</th>
+			<th>Descripcion</th>
+			<th>1a Hora</th>
+			<th>2a Hora</th>
+			<th>3a Hora</th>
+			<th>Descanso</th>
+			<th>4a Hora</th>
+			<th>5a Hora</th>
+			<th>6a Hora</th>
+			<th>Hora De Salida</th>
+			<th>Eliminar</th>
+		</thead>
+		<?php
+			require_once "conexion.php";
+			$sql = "SELECT * FROM horarios";
+			$result = mysqli_query($con,$sql);
+			while($mostrar = mysqli_fetch_array($result)){
+		?>
+		<tbody>
+			<tr>
+				<td><?php echo $mostrar['id_horario'];?></td>
+				<td><?php echo $mostrar['descripcion'];?></td>
+				<td><?php echo $mostrar['hora1'];?></td>
+				<td><?php echo $mostrar['hora2'];?></td>
+				<td><?php echo $mostrar['hora3'];?></td>
+				<td><?php echo $mostrar['descanso'];?></td>
+				<td><?php echo $mostrar['hora4'];?></td>
+				<td><?php echo $mostrar['hora5'];?></td>
+				<td><?php echo $mostrar['hora6'];?></td>
+				<td><?php echo $mostrar['salida'];?></td>
+				<td><input type="checkbox" name = "IdsHorarios[]" value = "<?php echo $mostrar['id_horario'];?>"></td>
+			</tr>
+			<?php 
+				}
+			 ?>
+		</tbody>
+	</table>
+	<center><input type="submit" name="btnEliminar" value="Eliminar" class="btn btn-danger"></center>
+	</form>
 </div>
 
+<br>
+
+<br>
 <div class="footer_bg" id="nosotros"><!-- start footer -->
 <div class="container">
 	<div class="col-md-4  contact_right">

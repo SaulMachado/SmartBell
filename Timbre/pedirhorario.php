@@ -1,8 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>SmartBell::Inicio</title>
+<title>SmartBell:Registro</title>
 <meta charset="utf-8">
+<?php 
+		include_once "conexion.php"
+?>
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
@@ -41,6 +44,7 @@
 </head>
 <body>
 <div class="header_bg" id="home"><!-- start header -->
+
 <div class="container">
 	<div class="row header text-center specials">
 		<div class="h_logo">
@@ -62,38 +66,39 @@
 	</div>
 </div>
 </div>
-<div class="slider_bg"><!-- start slider -->
+
 <div class="container">
-		<div class="row slider">
-		<div class="wmuSlider example1"><!-- start wmuSlider example1 -->
-			   <div class="wmuSliderWrapper">
-				   <article style="position: absolute; width: 100%; opacity: 0;"> 
-				  	 	<div class="slider_img text-center">
-				   			<ul class="list-unstyled list_imgs">
-				   				<li><img src="images/slider_vm.jpg" alt="" class="responsive"/></li>
-				   			</ul>
-			           	</div>
-				   </article>
-				   <article style="position: relative; width: 100%; opacity: 1;"> 
-				  	 	<div class="slider_img text-center">
-				   			<ul class="list-unstyled list_imgs">
-				   				<li><img src="images/slider_escuela.jpg" alt="" class="responsive"/></li>
-				   			</ul>
-			           	</div>
-				   </article>
-				 </div>
-                <ul class="wmuSliderPagination">
-                	<li><a href="#" class="">0</a></li>
-                	<li><a href="#" class="">1</a></li>
-                </ul>
-			<script src="js/jquery.wmuSlider.js"></script> 
-		     <script>
-				 $('.example1').wmuSlider();         
-			</script>
-        </div><!-- end wmuSlider example1 -->
-        <div class="clearfix"></div>
-      </div>
-</div>
+	<div class="row about">
+		<div class="col-md-3 about_img">
+			<img src="images/user.png" alt="" class="responsive"/>
+		</div>
+		<div class="col-md-8 contact_left">
+			<form  method="POST" action="programarhorario.php">
+				<h2> CREAR HORARIO </h2>
+				<h4>Ingrese los datos correspondientes:</h4><br>
+				<h2> DESCRIPCION </h2>
+				<input type="text" placeholder="&#128272; Ej:Horario Mañana " name="descripcion">
+				<h3><font color="black"> 1a HORA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 6:00:00 " name = "hora1" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> 2a HORA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 7:00:00 " name = "hora2" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> 3a HORA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 8:00:00 " name = "hora3" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> DESCANSO </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 9:00:00 " name = "descanso" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> 4a HORA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 9:30:00 " name = "hora4" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> 5a HORA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 10:30:00 " name = "hora5" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> 6a HORA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 11:30:00 " name = "hora6" min="5:00:00" max="20:00:00">
+				<h3><font color="black"> SALIDA </font></h3>
+				<input type="time" placeholder="&#128272; Ej: 12:30:00 " name = "salida" min="5:00:00" max="20:00:00">
+				
+				<input type="submit" value="Guardar">
+        </form>
+		</div>
+	</div>
 </div>
 
 <div class="footer_bg" id="nosotros"><!-- start footer -->

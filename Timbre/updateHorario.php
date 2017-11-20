@@ -62,59 +62,74 @@
 	</div>
 </div>
 </div>
-<div class="slider_bg"><!-- start slider -->
-<div class="container">
-		<div class="row slider">
-		<div class="wmuSlider example1"><!-- start wmuSlider example1 -->
-			   <div class="wmuSliderWrapper">
-				   <article style="position: absolute; width: 100%; opacity: 0;"> 
-				  	 	<div class="slider_img text-center">
-				   			<ul class="list-unstyled list_imgs">
-				   				<li><img src="images/slider_vm.jpg" alt="" class="responsive"/></li>
-				   			</ul>
-			           	</div>
-				   </article>
-				   <article style="position: relative; width: 100%; opacity: 1;"> 
-				  	 	<div class="slider_img text-center">
-				   			<ul class="list-unstyled list_imgs">
-				   				<li><img src="images/slider_escuela.jpg" alt="" class="responsive"/></li>
-				   			</ul>
-			           	</div>
-				   </article>
-				 </div>
-                <ul class="wmuSliderPagination">
-                	<li><a href="#" class="">0</a></li>
-                	<li><a href="#" class="">1</a></li>
-                </ul>
-			<script src="js/jquery.wmuSlider.js"></script> 
-		     <script>
-				 $('.example1').wmuSlider();         
-			</script>
-        </div><!-- end wmuSlider example1 -->
-        <div class="clearfix"></div>
-      </div>
-</div>
-</div>
 
-<div class="footer_bg" id="nosotros"><!-- start footer -->
+<div class="main_bg"  id="about"><!-- start about us -->
 <div class="container">
-	<div class="col-md-4  contact_right">
-		<h1><a href="#"><font color=white>SmartBell</font></a></h1>
-			<p>"Tu Nueva Herramienta":</h4>
-			<p><span>Acerca de: </span> SmartBell es un proyecto el cual busca facilitar la mecanica del tradicional timbre estudiantil realizado en las escuelas de la ciudad de monteria, ha sido desarrolada por un grupo de estudiantes de Ingenieria De Sistemas, conformado por: Eva Padilla, Saul Machado, Jesus Nieves, José Murillo. Los cuales desidieron icnursionar en este campo y desarrollar este aplicativo para la solucion de algunos  problemas que se venian presentando en las instituciones. </p>
-			<ul class="list-unstyled address">
-				<li><i class="fa fa-map-marker"></i><span>Universidad de Cordoba - Campus Monteria</span></li>
-				<!--<li><i class="fa fa-phone"></i><span>(00) 222 666 444</span></li>
-				<li><i class="fa fa-envelope"></i><a href="mailto:info@mycompany.com">info(at)mycompany.com</a></li>-->
-			</ul>
+	<div class="row about">
+		<div class="col-md-3 about_img">
+			<img src="images/user.png" alt="" class="responsive"/>
 		</div>
+		<div class="col-md-9">
+			<?php
+				include_once "conexion.php";
+
+				$idh = $_POST['select_id'];
+				$des = $_POST['descripcion_nueva'];
+				$h1 = $_POST['hora1_nueva'];
+				$h2 = $_POST['hora2_nueva'];
+				$h3 = $_POST['hora3_nueva'];
+				$descanso = $_POST['descanso_nueva'];
+				$h4 = $_POST['hora4_nueva'];
+				$h5 = $_POST['hora5_nueva'];
+				$h6 = $_POST['hora6_nueva'];
+				$salir = $_POST['salida_nueva'];
+
+
+				$sql = "UPDATE horarios SET id_horario='$idh', descripcion='$des', hora1='$h1', hora2='$h2', hora3='$h3', descanso='$descanso', hora4='$h4', hora5='$h5', hora6='$h6', salida='$salir' WHERE id_horario = '$idh'";
+
+				$resultado = mysqli_query($con, $sql);
+
+				if(!$resultado){
+					echo "ERROR AL ACTUALIZAR HORARIO";
+				}
+				else{
+					echo "ACTUALIZACION EXITOSA";
+				}
+			?>
+		</div>
+	</div>
+</div>
+</div>
+<div class="footer_bg" id="contact"><!-- start footer -->
+<div class="container">
+	<div class="row footer">
+		<div class="col-md-8 contact_left">
+			<h3>get in touch</h3>
+			<p>In order to get in touch use the contact form below:</h4>
+			<form method="post" action="contact-post.html">
+				<input type="text" value="Name (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+				<input type="text" value="Email (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+				<input type="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
+				<textarea onfocus="if(this.value == 'Your Message here....') this.value='';" onblur="if(this.value == '') this.value='Your Message here....;" >Your Message here....</textarea>
+				<span class="pull-right"><input type="submit" value="submit us"></span>
+			</form>
+		</div>
+		<div class="col-md-4  contact_right">
+			<p><span>Lorem Ipsum is simply dummy text: </span> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+			<ul class="list-unstyled address">
+				<li><i class="fa fa-map-marker"></i><span>500 Lorem Ipsum Dolor Sit,</span></li>
+				<li><i class="fa fa-phone"></i><span>(00) 222 666 444</span></li>
+				<li><i class="fa fa-envelope"></i><a href="mailto:info@mycompany.com">info(at)mycompany.com</a></li>
+			</ul>
+		</div>		
+	</div>
 </div>
 </div>
 <div class="footer1_bg"><!-- start footer1 -->
 	<div class="container">
 		<div class="row  footer">
 			<div class="copy text-center">
-				<p class="link"><span>&#169; Todos los derechos reservados | Template by&nbsp;<a href="http://w3layouts.com/"> Unicordoba</a></span></p>
+				<p class="link"><span>&#169; All rights reserved | Template by&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a></span></p>
 				<a href="#home" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"> </span></a>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>SmartBell::Inicio</title>
+<title>SmartBell::Delete</title>
 <meta charset="utf-8">
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
@@ -62,44 +62,39 @@
 	</div>
 </div>
 </div>
-<div class="slider_bg"><!-- start slider -->
-<div class="container">
-		<div class="row slider">
-		<div class="wmuSlider example1"><!-- start wmuSlider example1 -->
-			   <div class="wmuSliderWrapper">
-				   <article style="position: absolute; width: 100%; opacity: 0;"> 
-				  	 	<div class="slider_img text-center">
-				   			<ul class="list-unstyled list_imgs">
-				   				<li><img src="images/slider_vm.jpg" alt="" class="responsive"/></li>
-				   			</ul>
-			           	</div>
-				   </article>
-				   <article style="position: relative; width: 100%; opacity: 1;"> 
-				  	 	<div class="slider_img text-center">
-				   			<ul class="list-unstyled list_imgs">
-				   				<li><img src="images/slider_escuela.jpg" alt="" class="responsive"/></li>
-				   			</ul>
-			           	</div>
-				   </article>
-				 </div>
-                <ul class="wmuSliderPagination">
-                	<li><a href="#" class="">0</a></li>
-                	<li><a href="#" class="">1</a></li>
-                </ul>
-			<script src="js/jquery.wmuSlider.js"></script> 
-		     <script>
-				 $('.example1').wmuSlider();         
-			</script>
-        </div><!-- end wmuSlider example1 -->
-        <div class="clearfix"></div>
-      </div>
-</div>
-</div>
 
+<div class="main_bg"  id="about"><!-- start about us -->
+<div class="container">
+	<div class="row about">
+		<div class="col-md-3 about_img">
+			<img src="images/user.png" alt="" class="responsive"/>
+		</div>
+		<div class="col-md-9">
+			<?php
+				include_once("conexion.php");
+
+				if(@$_POST['btnEliminar']){
+					if(isset($_POST['IdsHorarios']) AND is_array($_POST['IdsHorarios'])){
+						foreach ($_POST['IdsHorarios'] as $id_horario) {
+						mysqli_query($con,"DELETE FROM horarios WHERE id_horario = '$id_horario' ");
+						}
+						echo "HORARIO ELIMINADO EXITOSAMENTE";
+					}else{
+						echo "NO A SELECCIONADO NINGUN HORARIO";
+					}
+				}
+				else{
+					echo "ERROR, NO SE PUDO ELIMIAR EL HORARIO";
+				}
+ 			?>
+		</div>
+	</div>
+</div>
+</div>
 <div class="footer_bg" id="nosotros"><!-- start footer -->
 <div class="container">
 	<div class="col-md-4  contact_right">
-		<h1><a href="#"><font color=white>SmartBell</font></a></h1>
+		<h1><a href="xyz"><font color=white>SmartBell</font></a></h1>
 			<p>"Tu Nueva Herramienta":</h4>
 			<p><span>Acerca de: </span> SmartBell es un proyecto el cual busca facilitar la mecanica del tradicional timbre estudiantil realizado en las escuelas de la ciudad de monteria, ha sido desarrolada por un grupo de estudiantes de Ingenieria De Sistemas, conformado por: Eva Padilla, Saul Machado, Jesus Nieves, José Murillo. Los cuales desidieron icnursionar en este campo y desarrollar este aplicativo para la solucion de algunos  problemas que se venian presentando en las instituciones. </p>
 			<ul class="list-unstyled address">
