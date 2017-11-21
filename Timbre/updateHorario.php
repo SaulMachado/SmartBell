@@ -67,7 +67,7 @@
 <div class="container">
 	<div class="row about">
 		<div class="col-md-3 about_img">
-			<img src="images/user.png" alt="" class="responsive"/>
+			<img src="images/update.png" alt="" class="responsive"/>
 		</div>
 		<div class="col-md-9">
 			<?php
@@ -90,10 +90,10 @@
 				$resultado = mysqli_query($con, $sql);
 
 				if(!$resultado){
-					echo "ERROR AL ACTUALIZAR HORARIO";
+					echo "<h2><center>ERROR AL ACTUALIZAR HORARIO</center></h2>";
 				}
 				else{
-					echo "ACTUALIZACION EXITOSA";
+					echo "<h2><center>ACTUALIZACION EXITOSA</center></h2>";
 				}
 			?>
 		</div>

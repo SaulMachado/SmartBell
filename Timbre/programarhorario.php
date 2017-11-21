@@ -67,7 +67,7 @@
 <div class="container">
 	<div class="row about">
 		<div class="col-md-3 about_img">
-			<img src="images/user.png" alt="" class="responsive"/>
+			<img src="images/ingresar_datos.png" alt="" class="responsive"/>
 		</div>
 		<div class="col-md-9">
 			<?php
@@ -91,10 +91,10 @@
 
 				if(!$resultado){
 
-					echo "error al registrar";
+					echo "<h2>¡Error al registrar!</h2>";
 				}
 				else{
-					echo "Registro exitoso";
+					echo "<h2>¡Registro exitoso!</h2>";
 				}
 			?>
 		</div>

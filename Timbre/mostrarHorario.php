@@ -112,15 +112,16 @@
 	</form>
 	<div id="log"></div> 
 	<script type="text/javascript"> 
-		document.getElementById('log').innerHTML='Valores checkeados:<br>'; 
+		document.getElementById('log').innerHTML='<h2><center>Valores checkeados:</center></h2><br>'; 
 		for (var i=0; i<localStorage.length; i++){ 
     		var key = localStorage.key(i); 
-    		document.getElementById(key).checked=1; 
-    		document.getElementById('log').innerHTML+=localStorage.getItem(key); 
+    		document.getElementById(key).checked=1;
+    		document.getElementById('log').innerHTML+='-> Horario ID:';
+    		document.getElementById('log').innerHTML+=localStorage.getItem(key);
+    		document.getElementById('log').innerHTML+='<br>';
 		} 
-		if(!i)document.getElementById('log').innerHTML+='ninguno'; 
+		if(!i)document.getElementById('log').innerHTML+='<h3><center>Ninguno</center></h3>'; 
 	</script> 
-	<center><input type="submit" value="Aceptar" class="btn btn-warning"></center>
 </div>
 
 <br>

@@ -67,7 +67,7 @@
 <div class="container">
 	<div class="row about">
 		<div class="col-md-3 about_img">
-			<img src="images/user.png" alt="" class="responsive"/>
+			<img src="images/delete.png" alt="" class="responsive"/>
 		</div>
 		<div class="col-md-9">
 			<?php
@@ -78,13 +78,13 @@
 						foreach ($_POST['IdsHorarios'] as $id_horario) {
 						mysqli_query($con,"DELETE FROM horarios WHERE id_horario = '$id_horario' ");
 						}
-						echo "HORARIO ELIMINADO EXITOSAMENTE";
+						echo "<h2><center>HORARIO ELIMINADO EXITOSAMENTE</center></h2>";
 					}else{
-						echo "NO A SELECCIONADO NINGUN HORARIO";
+						echo "<h2><center>NO A SELECCIONADO NINGUN HORARIO</center></h2>";
 					}
 				}
 				else{
-					echo "ERROR, NO SE PUDO ELIMIAR EL HORARIO";
+					echo "<h2><center>ERROR, NO SE PUDO ELIMIAR EL HORARIO</center></h2>";
 				}
  			?>
 		</div>
